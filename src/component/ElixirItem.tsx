@@ -1,4 +1,3 @@
-// src/components/ElixirItem.tsx
 import React from 'react';
 import { Elixir } from '../types';
 

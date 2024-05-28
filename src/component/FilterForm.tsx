@@ -1,22 +1,26 @@
 import React, { useState } from 'react';
 import { Filters } from '../types';
 
+// Define props interface for FilterForm component
 interface FilterFormProps {
-  onFilter: (filters: Filters) => void;
+  onFilter: (filters: Filters) => void; // Callback function to apply filters
 }
 
 const FilterForm: React.FC<FilterFormProps> = ({ onFilter }) => {
+  // State hooks for managing form inputs
   const [name, setName] = useState('');
   const [difficulty, setDifficulty] = useState('');
   const [ingredient, setIngredient] = useState('');
   const [inventorFullName, setInventorFullName] = useState('');
   const [manufacturer, setManufacturer] = useState('');
 
+  // Function to handle form submission
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onFilter({ name, difficulty, ingredient, inventorFullName, manufacturer });
+    onFilter({ name, difficulty, ingredient,  inventorFullName, manufacturer });
   };
 
+  // Function to handle form reset
   const handleReset = () => {
     setName('');
     setDifficulty('');
@@ -26,8 +30,10 @@ const FilterForm: React.FC<FilterFormProps> = ({ onFilter }) => {
     onFilter({});
   };
 
+  // Render JSX for FilterForm component
   return (
     <form className="filter-form" onSubmit={handleSubmit}>
+      {/* Name filter input */}
       <div className="form-group">
         <label htmlFor="name">Name</label>
         <input
@@ -37,6 +43,8 @@ const FilterForm: React.FC<FilterFormProps> = ({ onFilter }) => {
           type="text"
         />
       </div>
+      
+      {/* Difficulty filter input */}
       <div className="form-group">
         <label htmlFor="difficulty">Difficulty</label>
         <input
@@ -46,6 +54,8 @@ const FilterForm: React.FC<FilterFormProps> = ({ onFilter }) => {
           type="text"
         />
       </div>
+      
+      {/* Ingredient filter input */}
       <div className="form-group">
         <label htmlFor="ingredient">Ingredient</label>
         <input
@@ -55,6 +65,8 @@ const FilterForm: React.FC<FilterFormProps> = ({ onFilter }) => {
           type="text"
         />
       </div>
+      
+      {/* Inventor Full Name filter input */}
       <div className="form-group">
         <label htmlFor="inventorFullName">Inventor Full Name</label>
         <input
@@ -64,6 +76,8 @@ const FilterForm: React.FC<FilterFormProps> = ({ onFilter }) => {
           type="text"
         />
       </div>
+      
+      {/* Manufacturer filter input */}
       <div className="form-group">
         <label htmlFor="manufacturer">Manufacturer</label>
         <input
@@ -73,7 +87,11 @@ const FilterForm: React.FC<FilterFormProps> = ({ onFilter }) => {
           type="text"
         />
       </div>
+      
+      {/* Apply Filters button */}
       <button type="submit">Apply Filters</button>
+      
+      {/* Reset Filters button */}
       <button type="button" onClick={handleReset}>Reset Filters</button>
     </form>
   );

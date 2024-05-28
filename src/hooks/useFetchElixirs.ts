@@ -1,4 +1,3 @@
-// src/hooks/useFetchElixirs.ts
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Elixir, Filters } from '../types';
