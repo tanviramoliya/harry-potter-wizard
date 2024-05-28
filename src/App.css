@@ -1,38 +1,109 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.app {
+    text-align: center;
+    padding: 20px;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  
+  .elixir-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .elixir-item {
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 20px;
+    width: 200px;
+    text-align: left;
   }
-}
+  
+  .filter-form {
+    margin-bottom: 20px;
+  }
+  
+  .filter-form .form-group {
+    margin-bottom: 10px;
+  }
+  
+  .filter-form input {
+    width: 100%;
+    padding: 8px;
+  }
+  
+  .filter-form button {
+    margin-right: 10px;
+    padding: 8px 12px;
+  }
+  
+  .loading-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .loading-spinner .spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .error {
+    color: red;
+  }
+  
+  /* Filter Form CSS */
+  .filter-form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;   
+    background: linear-gradient(to bottom, #ffffff, #f0f0f0); /* Gradient background */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; 
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  .form-group input[type="text"] {
+    width: calc(100% - 16px); 
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+ 
+
+
+  
+  
+  

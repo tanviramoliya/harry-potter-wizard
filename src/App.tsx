@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import useFetchElixirs from './hooks/useFetchElixirs';
+import { Filters } from './types';
 import './App.css';
+import FilterForm from './component/FilterForm';
+import LoadingSpinner from './component/LoadingSpinner';
+import ElixirList from './component/ElixirList';
 
-function App() {
+const App: React.FC = () => {
+  const [filters, setFilters] = useState<Filters>({});
+  const { elixirs, loading, error } = useFetchElixirs(filters);
+
+  const handleFilter = (newFilters: Filters) => {
+    setFilters(newFilters);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <h1>Harry Potter Elixirs</h1>
+      <FilterForm onFilter={handleFilter} />
+      {loading && <LoadingSpinner />}
+      {error && <p className="error">{error}</p>}
+      {!loading && !error && <ElixirList elixirs={elixirs} />}
     </div>
   );
-}
+};
 
 export default App;
